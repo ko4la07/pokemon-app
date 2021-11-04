@@ -8,7 +8,7 @@ const Home = () => {
   const [dataPokemon, setDataPokemon] = useState([]); 
   const [pokemonToSearch, setPokemonToSearch] = useState();
   const [pokemonResult, setPokemonResult] = useState();
-
+  const [sortPokemon, setSortPokemon] = useState();
   
   const fetchApi = async (url) => {
     let arrayPokemon = [];
@@ -35,28 +35,53 @@ const Home = () => {
   };
 
   const filterData = (data) => {
-    if(pokemonResult && pokemonResult !== 'There are no coincidences') {
+    if( pokemonResult && pokemonResult !== 'There are no coincidences' ) {
       const arrayFilter = data.filter((pokemon) => pokemon.name === pokemonResult);
       // console.log(arrayFilter);
       return arrayFilter;
-    }
+    } else if ( sortPokemon === 'all-pokemon' ) {
+      const arraySort = data.sort((a,b) => a.id - b.id);
+      return arraySort;
+    } else if ( sortPokemon === 'decreasing' ) {
+      const arraySort = data.sort((a,b) => b.id - a.id);
+      return arraySort;
+    } else if ( sortPokemon === 'A-Z' ) {
+      const arraySortAZ = data.sort((a,b) => a.name.localeCompare(b.name));
+      return arraySortAZ;
+    } else if ( sortPokemon === 'Z-A' ) {
+      const arraySortZA = data.sort((a,b) => b.name.localeCompare(a.name));
+      return arraySortZA;
+    } else if ( sortPokemon === 'Hp' ) {
+      const arraySortHp = data.sort((a,b) => b.stats[0]['base_stat'] - a.stats[0]['base_stat']);
+      return arraySortHp;
+    } 
     return data;
   };
 
   return (
     <main className="App">
-      <div>
-      <div>
-      <input type="text" placeholder = 'Search by type' onChange = {(e) => setPokemonToSearch((e.target.value).toLowerCase())}id = 'input-search' />
-      <button type = 'submit' onClick = {() => searchingPokemon(pokemonToSearch)}>Search</button>
-    </div>
-    <div>
-      {
-        <strong>{pokemonResult}</strong>
-      }
-    </div>
-      </div>
+      <section>
+        <div>
+          <input type="text" placeholder = 'Search by type' onChange = {(e) => setPokemonToSearch((e.target.value).toLowerCase())}id = 'input-search' />
+            <button type = 'submit' onClick = {() => searchingPokemon(pokemonToSearch)}>Search</button>
+        </div>
+        <div>
+          <select name="sort-pokemon" id="sort-pokemon" defaultValue = 'default' onChange={(e) => setSortPokemon(e.target.value)}> 
+            <option value="default"> Sort the pokemon </option>
+            <option value="all-pokemon"> All pokemon </option>
+            <option value='decreasing'>Sort decreasing number </option>
+            <option value="A-Z">Sort by name to A - Z</option>
+            <option value="Z-A">Sort by name to Z -A </option>
+            <option value="Hp">Sort by high Hp</option>
+          </select>
+        </div>
+      </section>
       <section className="App pokemon-cards">
+      <div>
+        {
+          <strong>{pokemonResult}</strong>
+        }
+      </div>
       {
         filterData(dataPokemon).map((pokemon) => {
           return(
