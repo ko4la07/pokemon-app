@@ -12,8 +12,8 @@ const ModalCard = ({data}) => {
               <img src = {data.sprites.other['dream_world']['front_default']} alt = 'data'></img>
               <div> <strong>{data.name}</strong> {data.stats[0]['base_stat']} Hp </div>
               <div>
-                <p>{data.weight}</p>
-                <span>Peso</span>
+                <p>{data.weight} Kg</p>
+                <span>Weight</span>
               </div>
               <div>
                 {
@@ -27,6 +27,22 @@ const ModalCard = ({data}) => {
                   })
                 }
               </div>
+              <div>
+                <p>{data.height} m</p>
+                <span>Height</span>
+              </div>
+              <table>
+                {
+                  data.stats.map((element, index) => {
+                    return (
+                      <tr key = {index}>
+                        <td>{element.stat.name}:</td>
+                        <td>{element['base_stat']}</td>
+                      </tr>
+                    )
+                  })
+                }
+              </table>
             </article>
       </Modal>
     </>

@@ -41,7 +41,7 @@ const Pokedex = () => {
     // fetchApi(initialUrl);
     fetchApi(initialUrl).then((data) => setDataPokemon(data))
   }, [])
-  // console.log(dataPokemon); // array de pokémon
+  console.log(dataPokemon); // array de pokémon
 
   const searchingPokemon = (argument) => {
     const arrayNames = dataPokemon.map((pokemon) => pokemon.name);
@@ -115,8 +115,8 @@ const Pokedex = () => {
               <img src = {pokemon.sprites.other['dream_world']['front_default']} alt = 'pokemon'></img>
               <div><strong>{pokemon.name}</strong> {pokemon.stats[0]['base_stat']} Hp </div>
               <div>
-                <p>{pokemon.weight}</p>
-                <span>Peso</span>
+                <p>{pokemon.weight} Kg</p>
+                <span>Weight</span>
               </div>
               <div>
                 {
