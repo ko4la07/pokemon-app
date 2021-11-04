@@ -6,6 +6,8 @@ const Home = () => {
   const initialUrl = 'https://pokeapi.co/api/v2/pokemon';
 
   const [dataPokemon, setDataPokemon] = useState([]); 
+  const [pokemonToSearch, setPokemonToSearch] = useState();
+  const [pokemonResult, setPokemonResult] = useState();
 
   
   const fetchApi = async (url) => {
@@ -25,10 +27,38 @@ const Home = () => {
   }, [])
   // console.log(dataPokemon); // array de pokémon
 
+  const searchingPokemon = (argument) => {
+    const arrayNames = dataPokemon.map((pokemon) => pokemon.name);
+    // console.log(arrayNames);
+    arrayNames.includes(argument) ? setPokemonResult(argument) : setPokemonResult('There are no coincidences');
+    document.querySelector('#input-search').value = '';
+  };
+
+  const filterData = (data) => {
+    if(pokemonResult && pokemonResult !== 'There are no coincidences') {
+      const arrayFilter = data.filter((pokemon) => pokemon.name === pokemonResult);
+      // console.log(arrayFilter);
+      return arrayFilter;
+    }
+    return data;
+  };
+
   return (
-    <div className="App">
+    <main className="App">
+      <div>
+      <div>
+      <input type="text" placeholder = 'Search by type' onChange = {(e) => setPokemonToSearch((e.target.value).toLowerCase())}id = 'input-search' />
+      <button type = 'submit' onClick = {() => searchingPokemon(pokemonToSearch)}>Search</button>
+    </div>
+    <div>
       {
-        dataPokemon.map((pokemon) => {
+        <strong>{pokemonResult}</strong>
+      }
+    </div>
+      </div>
+      <section className="App pokemon-cards">
+      {
+        filterData(dataPokemon).map((pokemon) => {
           return(
             <article key = {pokemon.id}>
               <img src = {pokemon.sprites.other['dream_world']['front_default']} alt = 'pokemon'></img>
@@ -54,7 +84,8 @@ const Home = () => {
           ) 
         })
       }
-    </div>
+      </section>
+    </main>
   );
 }
 

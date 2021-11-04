@@ -19,7 +19,10 @@ const ModalCard = ({data}) => {
                 {
                   data.types.map((element, index) => {
                     return (
-                      <span key = {index}>{element.type.name}</span>
+                      <div key = {index}>
+                        <img src = {require(`../assets/img/${element.type.name}.png`).default}  alt = 'type' style = {{width:'26px', height:'26px'}} />
+                        <span>{element.type.name}</span>
+                      </div>
                     )
                   })
                 }
