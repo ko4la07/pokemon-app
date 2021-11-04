@@ -25,11 +25,6 @@ const Home = () => {
   }, [])
   // console.log(dataPokemon); // array de pokémon
 
-  const pathTypes = (type) => {
-    const pathImage = `../assets/img/${type}.png`;
-    return pathImage;
-  };
-
   return (
     <div className="App">
       {
@@ -47,7 +42,7 @@ const Home = () => {
                   pokemon.types.map((element, index) => {
                     return (
                       <div key = {index}>
-                        <img src = {pathTypes(element.type.name)}  alt = 'type' />
+                        <img src = {require(`../assets/img/${element.type.name}.png`).default}  alt = 'type' style = {{width:'26px', height:'26px'}} />
                         <span>{element.type.name}</span>
                       </div>
                     )
@@ -59,21 +54,6 @@ const Home = () => {
           ) 
         })
       }
-      {/* <img src = {image} alt = 'pokemon'></img> */}
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
     </div>
   );
 }
