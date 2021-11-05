@@ -11,6 +11,7 @@ const Pokedex = () => {
   const [pokemonResult, setPokemonResult] = useState();
   const [sortPokemon, setSortPokemon] = useState();
   const [info, setInfo] = useState({});
+  const [allDataPokemon,setAllDataPokemon] = useState([]);
   
   const fetchApi = async (url) => {
     let arrayLinksPokemon = [];
@@ -34,21 +35,28 @@ const Pokedex = () => {
 
   // hook de react
   useEffect (() => {
-    fetchApi(initialUrl).then((data) => setDataPokemon(data))
+    fetchApi(initialUrl).then((data) => setDataPokemon(data));
+    fetchApi('https://pokeapi.co/api/v2/pokemon?limit=150').then((data) => setAllDataPokemon(data));
   }, [])
   // console.log(dataPokemon); // array de pokémon
 
   const searchingPokemon = (argument) => {
     const arrayNames = dataPokemon.map((pokemon) => pokemon.name);
     arrayNames.includes(argument) ? setPokemonResult(argument) : setPokemonResult('There are no coincidences');
-    document.querySelector('#input-search').value = '';
+    // document.querySelector('#input-search').value = '';
   };
 
   const filterData = (data) => {
     if( pokemonResult && pokemonResult !== 'There are no coincidences' ) {
       document.querySelector('.btns-pagination').style.display = 'none';
       const arrayFilter = data.filter((pokemon) => pokemon.name === pokemonResult);
-      return arrayFilter;
+      const auxArrayFilter = allDataPokemon.filter((pokemon) => pokemon.name === pokemonResult)
+      if (arrayFilter.length === 0) {
+        return auxArrayFilter;
+      }else{
+        return arrayFilter;
+      }
+
     } else if ( sortPokemon === 'all-pokemon' ) {
       const arraySort = data.sort((a,b) => a.id - b.id);
       return arraySort;

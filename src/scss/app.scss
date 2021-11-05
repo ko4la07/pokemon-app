@@ -70,7 +70,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 1000000;
+  z-index: 70;
 }
 
 /* MODAL */
@@ -331,6 +331,9 @@ table {
   @include roboto-regular(map-get($color,white),map-get($font-size,ml));
   margin-top: 15px;
   border: none;
+}
+#sort-pokemon:focus{ 
+  outline: none;
 }
 .pagination {
   display: flex;
