@@ -7,9 +7,9 @@
   box-sizing: border-box;
 }
 
-
 body{
   @include roboto-regular(map-get($color,black),map-get($font-size,m));
+  background-image: url('../assets/img/background-stars.jpg');
 }
 
 .backgroundHome__image{
@@ -21,11 +21,18 @@ a {
   text-decoration: none;
   margin: 10px;
   font-size: map-get($font-size,ml);
+  @include breakpoint(700px) {
+    margin: 10px 30px;
+    font-size: map-get($font-size,xxl);
+  }
 }
 ul {
   display: flex;
   justify-content: flex-end;
   margin: 35px 40px 35px 0px;
+  @include breakpoint(700px) {
+    margin: 40px 100px 35px 0px;
+  }
 }
 li {
   list-style: none;
@@ -41,11 +48,19 @@ li {
   display: grid;
   grid-template-columns: 1fr 1fr;
   color: white;
+  @include breakpoint(700px) {
+    height: 120px;
+  }
 }
 .App-header img {
   height: 70px;
   width: 150px;
   margin: 15px 0px 15px 30px;
+  @include breakpoint(700px) {
+    height: 100px;
+    width: 240px;
+    margin: 15px 0px 15px 60px;
+  }
 }
 .line-header {
   height: 5px;
@@ -55,9 +70,16 @@ li {
   background-image: url('../assets/img/backgroundHome.png');
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 200px;
   display: flex;
   flex: 1;
+  @include breakpoint(700px) {
+    height: 430px;
+    width: 100%;
+  }
+  @include breakpoint(1000px){
+    height: 100vh;
+  }
 }
 
 /* FOOTER */
@@ -101,6 +123,10 @@ footer {
   border-radius: 15px;
   flex-wrap: wrap;
   line-height: 37px;
+  @include breakpoint(700px) {
+    width: 700px;
+    height: 820px;
+  }
 }
 .modal-container h2 {
   display: flex;
@@ -125,6 +151,10 @@ footer {
 .modal-close svg {
   height: 18px;
   width: 18px;
+  @include breakpoint(700px) {
+    height: 35px;
+    width: 35px;
+  }
 }
 .modal-information {
   background-color: map-get($color,white);
@@ -135,6 +165,10 @@ footer {
   display: flex;
   flex-direction: column;
   text-align: center;
+  @include breakpoint(700px) {
+    width: 645px;
+    height: 510px;
+  }
 }
 .modal-img {
   height: 200px;
@@ -144,6 +178,11 @@ footer {
   margin: 30px 0px -35px;
   background-color: map-get($color,white);
   border-radius: 50%;
+  @include breakpoint(700px) {
+    height: 290px;
+    width: 290px;
+    margin: 35px 0px -35px;
+  }
 }
 .img-pokemon {
   z-index: 100;
@@ -151,6 +190,11 @@ footer {
 table {
   text-align: start;
   margin: 20px 10px 0px;
+  @include breakpoint(700px) {
+    padding: 10px 120px;
+    @include roboto-regular(rgba(0, 0, 0, 0.7),map-get($font-size,x));
+
+  }
 }
 .modal-article {
   display: flex;
@@ -161,6 +205,10 @@ table {
   display: grid;
   margin: 10px;
   grid-template-columns: 1.2fr 2.6fr 1.2fr;
+  @include breakpoint(700px) {
+    padding: 10px 80px;
+    @include roboto-regular(rgba(0, 0, 0, 0.6),map-get($font-size,ml));
+  }
 }
 .pokemon-info div {
   display: flex;
@@ -178,11 +226,20 @@ table {
 #type-pokemon {
   display: flex;
   padding: 0px 10px;
+  @include breakpoint(700px) {
+    flex-direction: row;
+    font-size: 16px;
+  }
 }
 .line-modal {
   height: 1px;
   margin: 10px 0px 0px;
   background-color: map-get($color,lightBlack);
+}
+.pokemon-name {
+  @include breakpoint(700px) {
+    @include roboto-regular(rgba(0, 0, 0, 0.6),map-get($font-size,x));
+  }
 }
 .pokemon-name strong {
   @include roboto-regular(map-get($color,black),map-get($font-size,xxl));
@@ -193,6 +250,9 @@ table {
 }
 .pokemon-wh p {
   @include roboto-regular(map-get($color,black),map-get($font-size,m));
+  @include breakpoint(700px) {
+    @include roboto-regular(map-get($color,black),map-get($font-size,ml));
+  }
 }
 .pokemon-wh span {
   @include roboto-regular(rgba(0, 0, 0, 0.6),map-get($font-size,m));
@@ -212,13 +272,17 @@ table {
 .card-pokemon {
   display: flex;
   flex-direction: column;
-  height: 490px;
-  width: 387px;
+  height: 500px;
+  width: 320px;
   background-image: url('../assets/img/background-blue.jpg');
   font-size: 16px;
   border-radius: 15px;
   flex-wrap: wrap;
   margin: 20px;
+  @include breakpoint(700px) {
+    height: 490px;
+    width: 387px;
+  }
 }
 .container-allPokemon {
   display: flex;
@@ -245,12 +309,15 @@ table {
   background-color: map-get($color,white);
   padding: 90px 20px 0px;
   border-radius: 15px;
-  height: 300px;
+  height: 310px;
   @include roboto-regular(map-get($color,black),map-get($font-size,m));
   display: flex;
   flex-direction: column;
   text-align: center;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  @include breakpoint(700px) {
+    height: 300px;
+  }
 }
 .card-name {
   @include roboto-regular(rgba(0, 0, 0, 0.6),map-get($font-size,x));
@@ -295,9 +362,15 @@ table {
   background-color: transparent;
   padding: 6px 12px;
   height: 40px;
-  width: 270px;
+  width: 220px;
   @include roboto-regular(map-get($color,white),map-get($font-size,m));
   outline: none; 
+  @include breakpoint(700px) {
+    padding: 6px 12px;
+    height: 50px;
+    width: 400px;
+    @include roboto-regular(map-get($color,white),map-get($font-size,ml));
+  }
 }
 #input-search::placeholder {
   @include roboto-regular(map-get($color,darkYellow),map-get($font-size,ml));
@@ -307,17 +380,24 @@ table {
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 20px;
+  @include breakpoint(700px) {
+    padding-top: 30px;
+  }
 }
 .search-sort div {
   margin-left: 20px;
 }
 .search-sort button {
   background-color: map-get($color,darkYellow);
-  border:  1px solid map-get($color,darkYellow);
+  border:  none;
   padding: 6px 12px;
-  height: 40px;
+  height: 41px;
   @include roboto-regular(map-get($color,white),map-get($font-size,ml));
   cursor: pointer;
+  @include breakpoint(700px) {
+    padding: 6px 20px;
+    height: 50px;
+  }
 }
 .search-sort button:hover {
   background-color: rgba(185, 130, 26, 1);
@@ -327,10 +407,17 @@ table {
   background-color: map-get($color,darkYellow);
   padding: 6px 12px;
   height: 40px;
-  width: 330px;
+  width: 300px;
   @include roboto-regular(map-get($color,white),map-get($font-size,ml));
   margin-top: 15px;
   border: none;
+  @include breakpoint(700px) {
+    padding: 6px 20px;
+    height: 50px;
+    width: 430px;
+    margin-top: 0px;
+    text-align: center;
+  }
 }
 #sort-pokemon:focus{ 
   outline: none;
@@ -338,7 +425,7 @@ table {
 .pagination {
   display: flex;
   text-align: center;
-  margin-left: 60px;
+  margin-left: 40px;
 }
 .pagination button {
   padding: 10px;
@@ -348,82 +435,3 @@ table {
   border: none;
   margin: 5px;
 }
-
-/* MEDIA */
-
-@media only screen and (min-width: 600px) {
-  .modal-container {
-    width: 700px;
-    height: 820px;
-  }
-  .modal-img {
-    height: 290px;
-    width: 290px;
-    margin: 35px 0px -35px;
-  }
-  .modal-information {
-    width: 645px;
-    height: 510px;
-  }
-  .pokemon-name {
-    @include roboto-regular(rgba(0, 0, 0, 0.6),map-get($font-size,x));
-  }
-  .pokemon-info {
-    padding: 10px 80px;
-    @include roboto-regular(rgba(0, 0, 0, 0.6),map-get($font-size,ml));
-  }
-  #type-pokemon {
-    flex-direction: row;
-    font-size: 16px;
-  }
-  table {
-    padding: 10px 120px;
-    @include roboto-regular(rgba(0, 0, 0, 0.7),map-get($font-size,x));
-
-  }
-  .modal-close svg {
-    height: 35px;
-    width: 35px;
-  }
-  .pokemon-wh p {
-    @include roboto-regular(map-get($color,black),map-get($font-size,ml));
-  }
-  #input-search {
-    padding: 6px 12px;
-    height: 50px;
-    width: 400px;
-    @include roboto-regular(map-get($color,white),map-get($font-size,ml));
-  }
-  .search-sort button {
-    padding: 6px 20px;
-    height: 50px;
-    @include roboto-regular(map-get($color,white),map-get($font-size,ml));
-  }
-  #sort-pokemon {
-    padding: 6px 20px;
-    height: 50px;
-    width: 430px;
-    @include roboto-regular(map-get($color,white),map-get($font-size,ml));
-    margin-top: 0px;
-    text-align: center;
-  }
-  .search-sort {
-    padding-top: 30px;
-  }
-  .App-header {
-    height: 120px;
-  }
-  .App-header img {
-    height: 100px;
-    width: 240px;
-    margin: 15px 0px 15px 60px;
-  }
-  
-  ul {
-    margin: 40px 100px 35px 0px;
-  }
-  a {
-    margin: 10px 30px;
-    font-size: map-get($font-size,xxl);
-  }
- }

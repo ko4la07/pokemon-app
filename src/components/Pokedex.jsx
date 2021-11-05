@@ -1,6 +1,8 @@
 import { useEffect, useState} from 'react';
 import ModalCard from './ModalCard';
 import Pagination from './Pagination';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Pokedex = () => {
 
@@ -62,7 +64,7 @@ const Pokedex = () => {
 
   const searchingPokemon = (argument) => {
     const arrayNames = allDataPokemon.map((pokemon) => pokemon.name);
-    arrayNames.includes(argument) ? setPokemonResult(argument) : alert('There are no coincidences');
+    arrayNames.includes(argument) ? setPokemonResult(argument) : notify('There are no coincidences');
     document.querySelector('#input-search').value = '';
   };
 
@@ -99,6 +101,17 @@ const Pokedex = () => {
   const onNext = () => {
     fetchApi(info.next).then((data) => setDataPokemon(data));
   };
+
+  // Toastify 
+  const notify = (message) => toast.info(message, {
+    position: "bottom-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
 
   return (
     <main className="container-pokedex">
@@ -159,6 +172,9 @@ const Pokedex = () => {
             ) 
           })
       }
+      </div>
+      <div className = 'message-error-auth'>
+        <ToastContainer toastStyle={{ backgroundColor: 'rgba(45, 45, 48, 1)', padding: '15px', fontSize: '16px', color: 'white',}} />
       </div>
       </section>
     </main>

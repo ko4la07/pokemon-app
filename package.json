@@ -1,6 +1,6 @@
 {
   "name": "pokemon-app",
-  "homepage":"https://ko4la07.github.io/pokemon-app/",
+  "homepage": "https://ko4la07.github.io/pokemon-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +13,7 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-toastify": "^8.1.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
