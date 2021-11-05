@@ -78,8 +78,7 @@ li {
     width: 100%;
   }
   @include breakpoint(laptop){
-    height: 700px;
-    width: 100%;
+    height: 100vh;
   }
 }
 
