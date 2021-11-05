@@ -77,8 +77,9 @@ li {
     height: 430px;
     width: 100%;
   }
-  @include breakpoint(1000px){
-    height: 100vh;
+  @include breakpoint(laptop){
+    height: 700px;
+    width: 100%;
   }
 }
 
@@ -412,6 +413,11 @@ table {
   margin-top: 15px;
   border: none;
   @include breakpoint(700px) {
+    margin-top: 15px;
+    height: 50px;
+    width: 500px;
+  }
+  @include breakpoint(1000px) {
     padding: 6px 20px;
     height: 50px;
     width: 430px;
