@@ -1,6 +1,9 @@
 # RETO POKÉMON
 
 Este proyecto esta construido con React y Sass.
+La API que utilice en este proyecto es: 
+[Api Pokémon](https://pokeapi.co)
+
 
 ### Home
 
