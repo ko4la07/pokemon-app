@@ -42,7 +42,7 @@ const Pokedex = () => {
   const initUrl = 'https://pokeapi.co/api/v2/pokemon';
   const getFetch = async (url) => {
     let arrayPokemon = [];
-    for (let i = 1; i < 152; i++) {
+    for (let i = 1; i < 649; i++) {
       let response = await fetch(`${url}/${i}`);
       response = await response.json();
       arrayPokemon.push(response);
@@ -57,40 +57,39 @@ const Pokedex = () => {
   }, [])
 
   // console.log(allDataPokemon);
+  // console.log(pokemonToSearch);
+  // console.log(pokemonResult);
 
   const searchingPokemon = (argument) => {
-    const arrayNames = dataPokemon.map((pokemon) => pokemon.name);
-    arrayNames.includes(argument) ? setPokemonResult(argument) : setPokemonResult('There are no coincidences');
+    const arrayNames = allDataPokemon.map((pokemon) => pokemon.name);
+    arrayNames.includes(argument) ? setPokemonResult(argument) : alert('There are no coincidences');
     document.querySelector('#input-search').value = '';
   };
 
-  const filterData = (data) => {
-    if( pokemonResult && pokemonResult !== 'There are no coincidences' ) {
+  const filterData = () => {
+    if( pokemonResult) {
       document.querySelector('.btns-pagination').style.display = 'none';
-      const arrayFilter = data.filter((pokemon) => pokemon.name === pokemonResult);
       const auxArrayFilter = allDataPokemon.filter((pokemon) => pokemon.name === pokemonResult)
-      if (arrayFilter.length === 0) {
-        return auxArrayFilter;
-      }else{
-        return arrayFilter;
-      }
+      console.log(auxArrayFilter);
+
+      return auxArrayFilter;
     } else if ( sortPokemon === 'all-pokemon' ) {
-      const arraySort = data.sort((a,b) => a.id - b.id);
+      const arraySort = dataPokemon.sort((a,b) => a.id - b.id);
       return arraySort;
     } else if ( sortPokemon === 'decreasing' ) {
-      const arraySort = data.sort((a,b) => b.id - a.id);
+      const arraySort = dataPokemon.sort((a,b) => b.id - a.id);
       return arraySort;
     } else if ( sortPokemon === 'A-Z' ) {
-      const arraySortAZ = data.sort((a,b) => a.name.localeCompare(b.name));
+      const arraySortAZ = dataPokemon.sort((a,b) => a.name.localeCompare(b.name));
       return arraySortAZ;
     } else if ( sortPokemon === 'Z-A' ) {
-      const arraySortZA = data.sort((a,b) => b.name.localeCompare(a.name));
+      const arraySortZA = dataPokemon.sort((a,b) => b.name.localeCompare(a.name));
       return arraySortZA;
     } else if ( sortPokemon === 'Hp' ) {
-      const arraySortHp = data.sort((a,b) => b.stats[0]['base_stat'] - a.stats[0]['base_stat']);
+      const arraySortHp = dataPokemon.sort((a,b) => b.stats[0]['base_stat'] - a.stats[0]['base_stat']);
       return arraySortHp;
     } 
-    return data;
+    return dataPokemon;
   };
 
   const onPrevious = () => {
@@ -127,7 +126,7 @@ const Pokedex = () => {
       </div>
       <div className = 'container-allPokemon'>
         {
-          filterData(dataPokemon).map((pokemon) => {
+          filterData().map((pokemon) => {
             return(
               <article key = {pokemon.id} className='card-pokemon'>
                 <div className = 'card-number'>N° {pokemon.id}</div> 
