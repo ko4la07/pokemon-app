@@ -10,7 +10,7 @@ const Pagination = ({prev, next, onPrevious, onNext}) => {
   };
 
   return (
-    <div>
+    <div className = 'pagination'>
       <ul>
         {
           prev ? 

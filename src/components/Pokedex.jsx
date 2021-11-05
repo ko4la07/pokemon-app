@@ -1,5 +1,4 @@
 import { useEffect, useState} from 'react';
-import Footer from './Footer';
 import ModalCard from './ModalCard';
 import Pagination from './Pagination';
 
@@ -83,21 +82,23 @@ const Pokedex = () => {
   };
 
   return (
-    <main className="App">
+    <main className="container-pokedex">
       <section>
-        <div>
-          <input type="text" placeholder = 'Search by type' onChange = {(e) => setPokemonToSearch((e.target.value).toLowerCase())}id = 'input-search' />
-            <button type = 'submit' onClick = {() => searchingPokemon(pokemonToSearch)}>Search</button>
-        </div>
-        <div>
-          <select name="sort-pokemon" id="sort-pokemon" defaultValue = 'default' onChange={(e) => setSortPokemon(e.target.value)}> 
-            <option value="default"> Sort the pokemon </option>
-            <option value="all-pokemon"> Sort by lower number </option>
-            <option value='decreasing'>Sort by top number </option>
-            <option value="A-Z">Sort by name to A - Z</option>
-            <option value="Z-A">Sort by name to Z -A </option>
-            <option value="Hp">Sort by high Hp</option>
-          </select>
+        <div className ='search-sort'>
+          <div>
+            <input type="text" placeholder = 'Search by type' onChange = {(e) => setPokemonToSearch((e.target.value).toLowerCase())} id = 'input-search' />
+              <button type = 'submit' onClick = {() => searchingPokemon(pokemonToSearch)}>Search</button>
+          </div>
+          <div>
+            <select name="sort-pokemon" id="sort-pokemon" defaultValue = 'default' onChange={(e) => setSortPokemon(e.target.value)}> 
+              <option value="default"> Sort the pokemon </option>
+              <option value="all-pokemon"> Sort by lower number </option>
+              <option value='decreasing'>Sort by top number </option>
+              <option value="A-Z">Sort by name to A - Z</option>
+              <option value="Z-A">Sort by name to Z -A </option>
+              <option value="Hp">Sort by high Hp</option>
+            </select>
+          </div>
         </div>
       </section>
       <section className="App pokemon-cards">
@@ -107,36 +108,43 @@ const Pokedex = () => {
         }
       </div>
       <Pagination prev = {info.previous} next = {info.next} onPrevious = {onPrevious} onNext = {onNext}/>
-      {
-        filterData(dataPokemon).map((pokemon) => {
-          return(
-            <article key = {pokemon.id}>
-              <div>N° {pokemon.id}</div> 
-              <img src = {pokemon.sprites.other['dream_world']['front_default']} alt = 'pokemon'></img>
-              <div><strong>{pokemon.name}</strong> {pokemon.stats[0]['base_stat']} Hp </div>
-              <div>
-                <p>{pokemon.weight} Kg</p>
-                <span>Weight</span>
-              </div>
-              <div>
-                {
-                  pokemon.types.map((element, index) => {
-                    return (
-                      <div key = {index}>
-                        <img src = {require(`../assets/img/${element.type.name}.png`).default}  alt = 'type' style = {{width:'26px', height:'26px'}} />
-                        <span>{element.type.name}</span>
-                      </div>
-                    )
-                  })
-                }
-              </div>
-              <ModalCard data = {pokemon}/>
-            </article>
-          ) 
-        })
+      <div className = 'container-allPokemon'>
+        {
+          filterData(dataPokemon).map((pokemon) => {
+            return(
+              <article key = {pokemon.id} className='card-pokemon'>
+                <div className = 'card-number'>N° {pokemon.id}</div> 
+                <div className = 'card-img'>
+                  <img src = {pokemon.sprites.other['dream_world']['front_default']} alt = 'pokemon'></img>
+                </div>
+                <div className = 'card-information'>
+                  <div className = 'card-name'><strong>{pokemon.name}</strong> <span>{pokemon.stats[0]['base_stat']} Hp</span> </div>
+                  <div className = 'card-info'>
+                    <div className = 'pokemon-wh'>
+                      <p>{pokemon.weight} Kg</p>
+                      <span>Weight</span>
+                    </div>
+                    <div id= 'type-pokemon'>
+                      {
+                        pokemon.types.map((element, index) => {
+                          return (
+                            <div key = {index} className = 'each-type'>
+                              <img src = {require(`../assets/img/${element.type.name}.png`).default}  alt = 'type' style = {{width:'26px', height:'26px'}} />
+                              <span>{element.type.name}</span>
+                            </div>
+                          )
+                        })
+                      }
+                  </div>
+                  </div>
+                  <ModalCard data = {pokemon}/>
+                </div>
+              </article>
+            ) 
+          })
       }
+      </div>
       <Pagination prev = {info.previous} next = {info.next} onPrevious = {onPrevious} onNext = {onNext}/>
-      <Footer/>
       </section>
     </main>
   );

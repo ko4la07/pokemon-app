@@ -1,14 +1,11 @@
 import React from "react";
-import imgHome from '../assets/img/pokemon-tour.jpeg'
-import Footer from "./Footer";
+// import imgHome from '../assets/img/backgroundHome.png'
 
 const Home = () => {
   return (
     <>
-    <div>
-      <img src={imgHome} alt="imgen-home" />
+    <div className = 'background-home'>
     </div>
-    <Footer/>
     </>
   )
 };

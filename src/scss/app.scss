@@ -1,0 +1,403 @@
+@import 'variables';
+@import 'mixins';
+
+*{
+  margin: 0px;
+  padding:0px;
+  box-sizing: border-box;
+}
+
+
+body{
+  @include roboto-regular(map-get($color,black),map-get($font-size,m));
+}
+
+.backgroundHome__image{
+  width: 100%;
+}
+
+a {
+  color: map-get($color,white);
+  text-decoration: none;
+  margin: 10px;
+  font-size: map-get($font-size,ml);
+}
+ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: 35px 40px 35px 0px;
+}
+li {
+  list-style: none;
+}
+.App {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.App-header {
+  background-color: map-get($color,darkBlue);
+  height: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: white;
+}
+.App-header img {
+  height: 70px;
+  width: 150px;
+  margin: 15px 0px 15px 30px;
+}
+.line-header {
+  height: 5px;
+  background-color: map-get($color,darkYellow);
+}
+.background-home {
+  background-image: url('../assets/img/backgroundHome.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex: 1;
+}
+
+/* FOOTER */
+footer {
+  background-color: map-get($color,darkYellow);
+  @include roboto-regular(map-get($color,white),map-get($font-size,ml));
+  height: 80px;
+  padding: 30px;
+  text-align: center;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  z-index: 100;
+  top:0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(229, 229, 229, 0.6);
+  color: map-get($color,white);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.modal.is-open {
+  display: flex;
+}
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 20px 17px 0px;
+  background-image: url('../assets/img/background-blue.jpg');
+  font-weight: 100;
+  font-size: 16px;
+  border-radius: 15px;
+  flex-wrap: wrap;
+  line-height: 37px;
+}
+.modal-container h2 {
+  display: flex;
+  justify-content: center;
+  color: map-get($color,darkYellow);
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  border: none;
+  background-color: transparent;
+  color: white;
+  height: 20px;
+  width: 20px;
+}
+.modal-close path {
+  color: map-get($color,white);
+}
+.modal-close svg {
+  height: 18px;
+  width: 18px;
+}
+.modal-information {
+  background-color: map-get($color,white);
+  @include roboto-regular(map-get($color,black),map-get($font-size,m));
+  border-radius: 15px;
+  padding: 45px 30px 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.modal-img {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  align-self: center;
+  margin: 30px 0px -35px;
+  background-color: map-get($color,white);
+  border-radius: 50%;
+}
+.img-pokemon {
+  z-index: 100;
+}
+table {
+  text-align: start;
+  margin: 20px 10px 0px;
+}
+.modal-article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pokemon-info {
+  display: grid;
+  margin: 10px;
+  grid-template-columns: 1.2fr 2.6fr 1.2fr;
+}
+.pokemon-info div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.each-type {
+  display: flex;
+  width: 40px;
+  margin: 0px 10px;
+}
+.each-type img {
+  align-self: center;
+}
+#type-pokemon {
+  display: flex;
+  padding: 0px 10px;
+}
+.line-modal {
+  height: 1px;
+  margin: 10px 0px 0px;
+  background-color: map-get($color,lightBlack);
+}
+.pokemon-name strong {
+  @include roboto-regular(map-get($color,black),map-get($font-size,xxl));
+}
+.pokemon-name span {
+  @include roboto-regular(rgba(0, 0, 0, 0.6),map-get($font-size,ml));
+  margin-left: 10px;
+}
+.pokemon-wh p {
+  @include roboto-regular(map-get($color,black),map-get($font-size,m));
+}
+.pokemon-wh span {
+  @include roboto-regular(rgba(0, 0, 0, 0.6),map-get($font-size,m));
+}
+
+/*   POKEDEX */
+.container-pokedex {
+  background-image: url('../assets/img/background-stars.jpg');
+  background-position: center;
+  background-size: cover;
+  padding: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.card-pokemon {
+  display: flex;
+  flex-direction: column;
+  height: 490px;
+  width: 387px;
+  background-image: url('../assets/img/background-blue.jpg');
+  font-size: 16px;
+  border-radius: 15px;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+.container-allPokemon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card-img {
+  height: 210px;
+  width: 210px;
+  display: flex;
+  align-self: center;
+  margin: 20px 0px -80px;
+  background-color: map-get($color,white);
+  border-radius: 50%;
+}
+.card-img img {
+  height: 200px;
+  width: 200px;
+}
+.card-img {
+  z-index: 50;
+}
+.card-information {
+  background-color: map-get($color,white);
+  padding: 90px 20px 0px;
+  border-radius: 15px;
+  height: 300px;
+  @include roboto-regular(map-get($color,black),map-get($font-size,m));
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.card-name {
+  @include roboto-regular(rgba(0, 0, 0, 0.6),map-get($font-size,x));
+  margin-bottom: 10px;
+}
+.card-name strong {
+  @include roboto-regular(map-get($color,black),map-get($font-size,ml));
+}
+.card-name span {
+  @include roboto-regular(rgba(0, 0, 0, 0.6),map-get($font-size,s));
+  margin-left: 5px;
+}
+.card-info {
+  display: grid;
+  margin: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+.card-info div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.btn-card {
+  border:  2px solid map-get($color,darkBlue);
+  background-color: transparent;
+  border-radius: 15px;
+  @include roboto-regular(map-get($color,darkBlue),map-get($font-size,ml));
+  padding: 3px;
+  width: 200px;
+  align-self: center;
+  // margin: 25px;
+  position: relative;
+  bottom: -10px
+}
+.card-number {
+  @include roboto-regular(map-get($color,white),map-get($font-size,ml));
+  padding: 15px 0px 0px 15px;
+}
+#input-search {
+  border-radius: 15px 0px 0px 15px;
+  border:  2px solid map-get($color,darkYellow);
+  background-color: transparent;
+  padding: 6px 12px;
+  height: 40px;
+  width: 270px;
+  @include roboto-regular(map-get($color,white),map-get($font-size,m));
+}
+#input-search::placeholder {
+  @include roboto-regular(map-get($color,darkYellow),map-get($font-size,ml));
+}
+.search-sort {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.search-sort div {
+  margin-left: 20px;
+}
+.search-sort button {
+  background-color: map-get($color,darkYellow);
+  border:  1px solid map-get($color,darkYellow);
+  padding: 6px 12px;
+  height: 40px;
+  @include roboto-regular(map-get($color,white),map-get($font-size,ml));
+  cursor: pointer;
+}
+.search-sort button:hover {
+  background-color: rgba(185, 130, 26, 1);
+}
+#sort-pokemon {
+  border-radius: 0px 15px 15px 0px;
+  background-color: map-get($color,darkYellow);
+  padding: 6px 12px;
+  height: 40px;
+  width: 330px;
+  @include roboto-regular(map-get($color,white),map-get($font-size,ml));
+  margin-top: 15px;
+  border: none;
+}
+.pagination {
+  display: flex;
+  text-align: center;
+  margin-left: 60px;
+}
+.pagination button {
+  padding: 10px;
+  width: 130px;
+  @include roboto-regular(map-get($color,white),map-get($font-size,ml));
+  background-color: map-get($color,darkYellow);
+  border: none;
+  margin: 5px;
+}
+
+/* MEDIA */
+
+@media only screen and (min-width: 600px) {
+  .modal-container {
+    width: 700px;
+    height: 820px;
+  }
+  .modal-img {
+    height: 290px;
+    width: 290px;
+    margin: 35px 0px -35px;
+  }
+  .modal-information {
+    width: 645px;
+    height: 510px;
+  }
+  .pokemon-name {
+    @include roboto-regular(rgba(0, 0, 0, 0.6),map-get($font-size,x));
+  }
+  .pokemon-info {
+    padding: 10px 80px;
+    @include roboto-regular(rgba(0, 0, 0, 0.6),map-get($font-size,ml));
+  }
+  #type-pokemon {
+    flex-direction: row;
+    font-size: 16px;
+  }
+  table {
+    padding: 10px 120px;
+    @include roboto-regular(rgba(0, 0, 0, 0.7),map-get($font-size,x));
+
+  }
+  .modal-close svg {
+    height: 35px;
+    width: 35px;
+  }
+  .pokemon-wh p {
+    @include roboto-regular(map-get($color,black),map-get($font-size,ml));
+  }
+  #input-search {
+    padding: 6px 12px;
+    height: 50px;
+    width: 400px;
+    @include roboto-regular(map-get($color,white),map-get($font-size,ml));
+  }
+  .search-sort button {
+    padding: 6px 20px;
+    height: 50px;
+    @include roboto-regular(map-get($color,white),map-get($font-size,ml));
+  }
+  #sort-pokemon {
+    padding: 6px 20px;
+    height: 50px;
+    width: 430px;
+    @include roboto-regular(map-get($color,white),map-get($font-size,ml));
+    margin-top: 0px;
+    text-align: center;
+  }
+  .search-sort {
+    padding-top: 30px;
+  }
+ }
