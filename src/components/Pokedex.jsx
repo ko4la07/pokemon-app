@@ -29,30 +29,25 @@ const Pokedex = () => {
       response = await response.json();
       arrayPokemon.push(response);
     }
-    // console.log(arrayPokemon);
     return arrayPokemon;
   };
-  // fetchApi(initialUrl).then((data) => console.log(data));
-  // console.log(info);
 
   // hook de react
   useEffect (() => {
-    // fetchApi(initialUrl);
     fetchApi(initialUrl).then((data) => setDataPokemon(data))
   }, [])
-  console.log(dataPokemon); // array de pokémon
+  // console.log(dataPokemon); // array de pokémon
 
   const searchingPokemon = (argument) => {
     const arrayNames = dataPokemon.map((pokemon) => pokemon.name);
-    // console.log(arrayNames);
     arrayNames.includes(argument) ? setPokemonResult(argument) : setPokemonResult('There are no coincidences');
     document.querySelector('#input-search').value = '';
   };
 
   const filterData = (data) => {
     if( pokemonResult && pokemonResult !== 'There are no coincidences' ) {
+      document.querySelector('.btns-pagination').style.display = 'none';
       const arrayFilter = data.filter((pokemon) => pokemon.name === pokemonResult);
-      // console.log(arrayFilter);
       return arrayFilter;
     } else if ( sortPokemon === 'all-pokemon' ) {
       const arraySort = data.sort((a,b) => a.id - b.id);
@@ -102,12 +97,9 @@ const Pokedex = () => {
         </div>
       </section>
       <section className="App pokemon-cards">
-      <div>
-        {
-          <strong>{pokemonResult}</strong>
-        }
-      </div>
+      <div className = 'btns-pagination'>
       <Pagination prev = {info.previous} next = {info.next} onPrevious = {onPrevious} onNext = {onNext}/>
+      </div>
       <div className = 'container-allPokemon'>
         {
           filterData(dataPokemon).map((pokemon) => {
@@ -144,7 +136,6 @@ const Pokedex = () => {
           })
       }
       </div>
-      <Pagination prev = {info.previous} next = {info.next} onPrevious = {onPrevious} onNext = {onNext}/>
       </section>
     </main>
   );
