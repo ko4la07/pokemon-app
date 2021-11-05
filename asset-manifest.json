@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/ko4la07/pokemon-app/static/css/main.45ffc256.chunk.css",
+    "main.js": "/ko4la07/pokemon-app/static/js/main.64592449.chunk.js",
+    "main.js.map": "/ko4la07/pokemon-app/static/js/main.64592449.chunk.js.map",
+    "runtime-main.js": "/ko4la07/pokemon-app/static/js/runtime-main.025c6856.js",
+    "runtime-main.js.map": "/ko4la07/pokemon-app/static/js/runtime-main.025c6856.js.map",
+    "static/js/2.5c094ee9.chunk.js": "/ko4la07/pokemon-app/static/js/2.5c094ee9.chunk.js",
+    "static/js/2.5c094ee9.chunk.js.map": "/ko4la07/pokemon-app/static/js/2.5c094ee9.chunk.js.map",
+    "static/js/3.1831f116.chunk.js": "/ko4la07/pokemon-app/static/js/3.1831f116.chunk.js",
+    "static/js/3.1831f116.chunk.js.map": "/ko4la07/pokemon-app/static/js/3.1831f116.chunk.js.map",
+    "index.html": "/ko4la07/pokemon-app/index.html",
+    "static/css/main.45ffc256.chunk.css.map": "/ko4la07/pokemon-app/static/css/main.45ffc256.chunk.css.map",
+    "static/js/2.5c094ee9.chunk.js.LICENSE.txt": "/ko4la07/pokemon-app/static/js/2.5c094ee9.chunk.js.LICENSE.txt",
+    "static/media/app.scss": "/ko4la07/pokemon-app/static/media/backgroundHome.b8763a3f.png",
+    "static/media/bug.png": "/ko4la07/pokemon-app/static/media/bug.9bee0d5a.png",
+    "static/media/dark.png": "/ko4la07/pokemon-app/static/media/dark.69c1c31c.png",
+    "static/media/dragon.png": "/ko4la07/pokemon-app/static/media/dragon.f03a2a35.png",
+    "static/media/electric.png": "/ko4la07/pokemon-app/static/media/electric.389ad169.png",
+    "static/media/fairy.png": "/ko4la07/pokemon-app/static/media/fairy.af680881.png",
+    "static/media/favicon.png": "/ko4la07/pokemon-app/static/media/favicon.74192b43.png",
+    "static/media/fighting.png": "/ko4la07/pokemon-app/static/media/fighting.eabd8a4b.png",
+    "static/media/fire.png": "/ko4la07/pokemon-app/static/media/fire.69d0b60f.png",
+    "static/media/flying.png": "/ko4la07/pokemon-app/static/media/flying.05532a51.png",
+    "static/media/ghost.png": "/ko4la07/pokemon-app/static/media/ghost.1290ad78.png",
+    "static/media/ground.png": "/ko4la07/pokemon-app/static/media/ground.16f88507.png",
+    "static/media/ice.png": "/ko4la07/pokemon-app/static/media/ice.f3ae7bc5.png",
+    "static/media/logo-pokemon.png": "/ko4la07/pokemon-app/static/media/logo-pokemon.83b95c47.png",
+    "static/media/poison.png": "/ko4la07/pokemon-app/static/media/poison.4a589852.png",
+    "static/media/pokebola-blue.png": "/ko4la07/pokemon-app/static/media/pokebola-blue.2afa9fe2.png",
+    "static/media/prototipo-home.png": "/ko4la07/pokemon-app/static/media/prototipo-home.d3f1e351.png",
+    "static/media/prototipo-modal.png": "/ko4la07/pokemon-app/static/media/prototipo-modal.d25ada47.png",
+    "static/media/prototipo-pokedex.png": "/ko4la07/pokemon-app/static/media/prototipo-pokedex.7f3729cb.png",
+    "static/media/psychic.png": "/ko4la07/pokemon-app/static/media/psychic.c0d9274a.png",
+    "static/media/steel.png": "/ko4la07/pokemon-app/static/media/steel.0f254c9a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.025c6856.js",
+    "static/js/2.5c094ee9.chunk.js",
+    "static/css/main.45ffc256.chunk.css",
+    "static/js/main.64592449.chunk.js"
+  ]
+}
